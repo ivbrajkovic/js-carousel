@@ -15,5 +15,5 @@ new Carousel(carouselsArr[1], {
   elevation: 3,
   around: true,
   showBullets: true,
-  // autoplay: true,
+  autoplay: true,
 });
