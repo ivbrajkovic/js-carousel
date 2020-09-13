@@ -30,11 +30,11 @@ class Carousel {
   constructor(carousel, opt) {
     // Carousel options
     this.carousel = carousel;
+    this.running = false;
     this.index = opt?.startIndex ?? 0;
     this.keyNavigation = opt?.keyNavigation ?? true;
     this.around = opt?.around ?? false;
     this.elevation = opt?.elevation ?? 0;
-    this.running = false;
     this.slideSpeed = opt?.slideSpeed ?? 500;
 
     // Carousel CSS properties
@@ -43,8 +43,8 @@ class Carousel {
     this.navigationOverlayColor = opt?.navigationOverlayColor || "#FFF";
 
     // Bullets
-    this.showBullets = opt?.showBullets ?? false;
     this.bullets = null;
+    this.showBullets = opt?.showBullets ?? false;
 
     // Arrows
     this.arrows = null;

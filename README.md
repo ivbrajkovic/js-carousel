@@ -43,3 +43,9 @@ carousel.setIndex(); // set active slide index
 carousel.startAutoplay(); // start autoplay
 carousel.stopAutoplay(); // stop autoplay
 ```
+
+## TODO
+
+1. Add animation _onLoad_ animation
+2. Add lasy load for _img_ elements
+3. Add inertia on slide pages
