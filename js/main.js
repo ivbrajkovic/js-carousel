@@ -3,6 +3,7 @@ import Carousel from "./modules/carousel.js";
 const carouselsArr = document.querySelectorAll(".carousel");
 
 new Carousel(carouselsArr[0], {
+  // startIndex: 2,
   elevation: 3,
   around: false,
   showBullets: true,
