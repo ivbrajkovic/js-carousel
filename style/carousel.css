@@ -8,6 +8,8 @@
   --navigation-color: #566475;
   --navigation-overlay-color: #fff;
 
+  --carousel-animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
   margin: 1rem;
   position: relative;
   min-height: 200px;
@@ -19,6 +21,9 @@
   transform-style: preserve-3d;
 
   box-shadow: var(--carousel-shadow);
+
+  opacity: 0;
+  animation: fadeIn 500ms var(--carousel-animation-easing) 1000ms forwards;
 
   /* debug */
   /* background: coral; */
@@ -34,7 +39,7 @@
   /* transition: transform 0.5s, opacity 0.7s, z-index 0.5s; */
   transition: transform var(--carousel-slide-speed),
     opacity var(--carousel-slide-speed);
-  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition-timing-function: var(--carousel-animation-easing);
   transform: translate3d(0px, 0px, -200px);
   will-change: transform, opacity;
 }
@@ -62,4 +67,13 @@
 .carousel__item.next {
   /* transform: translateX(100%) scale(0.8); */
   transform: translate3d(100%, 0px, -200px);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

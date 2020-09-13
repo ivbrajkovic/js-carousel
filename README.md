@@ -47,5 +47,6 @@ carousel.stopAutoplay(); // stop autoplay
 ## TODO
 
 1. Add animation _onLoad_ animation
-2. Add lasy load for _img_ elements
-3. Add inertia on slide pages
+2. Add lasy load for _img_ element
+3. Add event _onLoad_ fro _img_ element
+4. Add inertia on slide pages
