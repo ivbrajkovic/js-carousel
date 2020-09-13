@@ -1,0 +1,28 @@
+@import "reset.css";
+@import "carousel.css";
+@import "arrow.css";
+@import "bullets.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  font-family: "Montserrat", sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #eee;
+}
+
+.slide-page {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: #bdc3c7;
+}

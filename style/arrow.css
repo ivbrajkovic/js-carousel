@@ -1,0 +1,264 @@
+/*=============================================
+=            Arrow wrapper            =
+=============================================*/
+
+.arrow-wrapper {
+  --arrow-size: 120px;
+  --arrow-offset: 10px;
+  --arrow-offset-left: var(--arrow-offset);
+  --arrow-offset-right: calc(var(--arrow-size) / 2 - var(--arrow-offset));
+
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-wrapper__left {
+  left: 0;
+}
+
+.arrow-wrapper__left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  transition: opacity 0.3s ease-out;
+}
+
+.arrow-wrapper__left:hover::before {
+  opacity: 1;
+}
+
+.arrow-wrapper__right {
+  right: 0;
+}
+
+.arrow-wrapper__right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  transition: opacity 0.3s ease-out;
+}
+
+.arrow-wrapper__right:hover::before {
+  opacity: 1;
+}
+
+/*=====  End of Arrow wrapper  ======*/
+
+/*=============================================
+=            Arrow            =
+=============================================*/
+
+.arrow {
+  position: relative;
+  height: var(--arrow-size);
+  width: calc(var(--arrow-size) / 2);
+}
+
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--navigation-elements-height);
+  height: 50%;
+  background: var(--navigation-color);
+  transition: transform 0.3s;
+  backface-visibility: hidden;
+
+  /* debug */
+  /* background: rgba(0, 0, 0, 0.2); */
+}
+
+.arrow::before {
+  transform-origin: 50% 0%;
+}
+
+.arrow::after {
+  transform-origin: 100% 0%;
+}
+
+/*----------  Arrow left  ----------*/
+
+.arrow__left {
+  margin-right: auto;
+}
+
+.arrow__left::before {
+  transform: translateX(var(--arrow-offset-left)) rotate(-135deg);
+}
+
+.arrow__left::after {
+  transform: translateX(var(--arrow-offset-left)) rotate(-45deg);
+}
+
+.arrow-wrapper__left:hover .arrow__left::before {
+  transform: translateX(var(--arrow-offset-left)) rotate(-125deg);
+}
+
+.arrow-wrapper__left:hover .arrow__left::after {
+  transform: translateX(var(--arrow-offset-left)) rotate(-55deg);
+}
+
+/*----------  Arrow right  ----------*/
+
+.arrow__right {
+  margin-left: auto;
+}
+
+.arrow__right::after {
+  transform: translateX(var(--arrow-offset-right)) rotate(45deg);
+}
+
+.arrow__right::before {
+  transform: translateX(var(--arrow-offset-right)) rotate(135deg);
+}
+
+.arrow-wrapper__right:hover .arrow__right::before {
+  transform: translateX(var(--arrow-offset-right)) rotate(125deg);
+}
+
+.arrow-wrapper__right:hover .arrow__right::after {
+  transform: translateX(var(--arrow-offset-right)) rotate(55deg);
+}
+
+/*=====  End of Arrow  ======*/
+
+/*=============================================
+=            Arrow overlay            =
+=============================================*/
+
+.arrow-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow-overlay::before,
+.arrow-overlay::after {
+  z-index: 999;
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--navigation-elements-height);
+  height: 0;
+
+  background: var(--navigation-overlay-color);
+  transition: transform 0.3s;
+  backface-visibility: hidden;
+  transition: height 0.3s, transform 0.3s;
+
+  /* debug */
+  /* background: rgba(0, 0, 0, 0.2); */
+}
+
+.arrow-wrapper__left:hover .arrow-overlay::before,
+.arrow-wrapper__left:hover .arrow-overlay::after,
+.arrow-wrapper__right:hover .arrow-overlay::before,
+.arrow-wrapper__right:hover .arrow-overlay::after {
+  height: 50%;
+}
+
+.arrow-overlay::before {
+  transform-origin: 50% 0%;
+}
+
+.arrow-overlay::after {
+  transform-origin: 100% 0%;
+}
+
+/*----------  Arrow overlay left  ----------*/
+
+.arrow-overlay__left::before {
+  transform: translateX(var(--arrow-offset-left)) rotate(-135deg);
+}
+
+.arrow-overlay__left::after {
+  transform: translateX(var(--arrow-offset-left)) rotate(-45deg);
+}
+
+.arrow-wrapper__left:hover .arrow-overlay__left::before {
+  transform: translateX(var(--arrow-offset-left)) rotate(-125deg);
+}
+
+.arrow-wrapper__left:hover .arrow-overlay__left::after {
+  transform: translateX(var(--arrow-offset-left)) rotate(-55deg);
+}
+
+/*----------  Arrow overlay right  ----------*/
+
+.arrow-overlay__right::after {
+  transform: translateX(var(--arrow-offset-right)) rotate(45deg);
+}
+
+.arrow-overlay__right::before {
+  transform: translateX(var(--arrow-offset-right)) rotate(135deg);
+}
+
+.arrow-wrapper__right:hover .arrow-overlay__right::before {
+  transform: translateX(var(--arrow-offset-right)) rotate(125deg);
+}
+
+.arrow-wrapper__right:hover .arrow-overlay__right::after {
+  transform: translateX(var(--arrow-offset-right)) rotate(55deg);
+}
+
+/*=====  End of Arrow overlay  ======*/
+
+/*=============================================
+=            Arrow text            =
+=============================================*/
+
+.arrow span {
+  pointer-events: none;
+  position: absolute;
+  /* font-weight: 300; */
+  font-size: 1.5rem;
+  line-height: 1;
+  top: 50%;
+
+  color: #fff;
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.arrow__left span {
+  left: 0%;
+  transform: translate(0%, -50%);
+}
+
+.arrow-wrapper__left:hover .arrow__left span {
+  transform: translate(100%, -50%);
+  opacity: 1;
+}
+
+.arrow__right span {
+  right: 0%;
+  transform: translate(0%, -50%);
+}
+
+.arrow-wrapper__right:hover .arrow__right span {
+  transform: translate(-100%, -50%);
+  opacity: 1;
+}
+
+/*=====  End of Arrow text  ======*/

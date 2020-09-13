@@ -1,0 +1,55 @@
+/*----------  Bullets wrapper  ----------*/
+
+.bullets-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+}
+
+/*----------  Bullets  ----------*/
+
+.bullets {
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  position: relative;
+}
+
+.bullets::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  left: 50%;
+  height: var(--navigation-elements-height);
+  width: 70%;
+  transform: translate(-50%, -50%);
+  background: var(--navigation-color);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.bullets::after {
+  content: "";
+  position: absolute;
+  height: var(--navigation-elements-height);
+  width: 0%;
+  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--navigation-overlay-color);
+  transition: width 0.3s, box-shadow 0.3s;
+}
+
+.bullets.active::after,
+.bullets:hover::after {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  width: 70%;
+}

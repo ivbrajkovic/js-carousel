@@ -1,0 +1,65 @@
+/*----------  Carosuel  ----------*/
+
+.carousel {
+  --carousel-shadow: none;
+  --carousel-slide-speed: 500ms;
+
+  --navigation-elements-height: 5px;
+  --navigation-color: #566475;
+  --navigation-overlay-color: #fff;
+
+  margin: 1rem;
+  position: relative;
+  min-height: 200px;
+  min-width: 400px;
+
+  overflow: hidden;
+
+  perspective: 500px;
+  transform-style: preserve-3d;
+
+  box-shadow: var(--carousel-shadow);
+
+  /* debug */
+  /* background: coral; */
+}
+
+/*----------  Carosuel item ----------*/
+
+.carousel__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  /* transition: transform 0.5s, opacity 0.7s, z-index 0.5s; */
+  transition: transform var(--carousel-slide-speed),
+    opacity var(--carousel-slide-speed);
+  transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transform: translate3d(0px, 0px, -200px);
+  will-change: transform, opacity;
+}
+
+.carousel__item.active {
+  /* z-index: 1; */
+  position: relative;
+  transform: translate3d(0px, 0px, 0px);
+
+  opacity: 1;
+}
+
+.carousel__item.prev,
+.carousel__item.next {
+  /* z-index: 0; */
+  opacity: 0;
+
+  /* transform: scale(0.8); */
+  /* transform: translate3d(0px, 0px, -40px); */
+}
+.carousel__item.prev {
+  /* transform: translateX(-100%) scale(0.8); */
+  transform: translate3d(-100%, 0px, -200px);
+}
+.carousel__item.next {
+  /* transform: translateX(100%) scale(0.8); */
+  transform: translate3d(100%, 0px, -200px);
+}

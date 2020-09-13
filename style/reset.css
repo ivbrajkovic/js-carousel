@@ -1,0 +1,12 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  /* debug */
+  /* outline: 1px solid red; */
+}
+
+img {
+  display: block;
+}
